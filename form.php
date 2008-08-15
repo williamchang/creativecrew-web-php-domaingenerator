@@ -409,10 +409,10 @@ function jsonRpc(eleTriggers, ajaxMethod, ajaxArguments, eleOutput, eleLoading) 
     }
     return false;
 }
-var gen = new classDomainGenerator();
+var app = new classDomainGenerator();
 // Register ready event to be executed when the DOM document has finished loading.
 $(document).ready(function() {
-    gen.init();
+    app.init();
 });
 
     //]]>
