@@ -430,10 +430,6 @@ $(document).ready(function() {
 <!-- BEGIN: Template Region Middle -->
         <div class="section">
             <h3>Create</h3>
-            <div id="ajax-expression-set-form" class="frmcommon">
-                <div class="inputs"><label>Expression</label><input type="text" id="ajax-expression-set-txt" name="ajax-expression-set-txt" class="txtcommon" value="" maxlength="16"/></div>
-                <div class="controls"><input type="button" id="ajax-expression-set-btn" class="btncommon" value="Set"/> <input type="reset" id="ajax-expression-clear-btn" class="btncommon" value="Clear"/></div>
-            </div>
             <div id="ajax-prefix-create-form" class="frmcommon">
                 <div class="inputs"><label>Prefix</label><input type="text" id="ajax-prefix-create-txt" name="ajax-prefix-create-txt" class="txtcommon" value="" maxlength="16"/></div>
                 <div class="controls"><div id="ajax-prefix-create-lod" class="loading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><input type="button" id="ajax-prefix-create-btn" class="btncommon" value="Add"/></div>
@@ -464,6 +460,10 @@ $(document).ready(function() {
         </div>
         <div class="section">
             <h3>Output</h3>
+			<div id="ajax-expression-set-form" class="frmcommon">
+                <div class="inputs"><label>Expression</label><input type="text" id="ajax-expression-set-txt" name="ajax-expression-set-txt" class="txtcommon" value="" maxlength="16"/></div>
+                <div class="controls"><input type="button" id="ajax-expression-set-btn" class="btncommon" value="Set"/> <input type="reset" id="ajax-expression-clear-btn" class="btncommon" value="Clear"/></div>
+            </div>
             <div id="ajax-generate-output-form" class="frmcommon">
                 <div class="inputs"><label>Delimiter</label><input type="text" id="ajax-delimiter-set-txt" name="ajax-delimiter-set-txt" class="txtcommon" value="\n" maxlength="8"/></div>
                 <div class="controls"><input type="button" id="ajax-delimiter-set-btn" class="btncommon" value="Set"/> <input type="reset" id="ajax-delimiter-clear-btn" class="btncommon" value="Clear"/></div>
