@@ -3,7 +3,7 @@
 @file
     DatabaseSchema-mysql.php
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
@@ -38,7 +38,7 @@ class DatabaseSchema {
 
         $queries = "
 
-CREATE TABLE " . TableUser::$TBL__users . " (
+CREATE TABLE " . TableUsers::$TBL__users . " (
 user_id bigint(20) NOT NULL auto_increment,
 user_name varchar(63) NOT NULL default '',
 user_password varchar(63) NOT NULL default '',
@@ -49,7 +49,7 @@ user_date_created datetime NOT NULL default '0000-00-00 00:00:00',
 PRIMARY KEY (user_id)
 ) $charsetCollate;
 
-CREATE TABLE " . TableUser::$TBL__options . " (
+CREATE TABLE " . TableUsers::$TBL__options . " (
 option_id bigint(20) NOT NULL auto_increment,
 option_name varchar(64) NOT NULL default '',
 option_value longtext NOT NULL,
@@ -57,14 +57,14 @@ PRIMARY KEY (option_id),
 KEY option_name (option_name)
 ) $charsetCollate;
 
-CREATE TABLE " . TableList::$TBL__prefixes . " (
+CREATE TABLE " . TableLists::$TBL__prefixes . " (
 prefix_id bigint(20) NOT NULL auto_increment,
 prefix_affix varchar(255) NOT NULL default '',
 prefix_date_created datetime NOT NULL default '0000-00-00 00:00:00',
 PRIMARY KEY(prefix_id)
 ) $charsetCollate;
 
-CREATE TABLE " . TableList::$TBL__postfixes . " (
+CREATE TABLE " . TableLists::$TBL__postfixes . " (
 postfix_id bigint(20) NOT NULL auto_increment,
 postfix_affix varchar(255) NOT NULL default '',
 postfix_date_created datetime NOT NULL default '0000-00-00 00:00:00',

@@ -3,14 +3,14 @@
 @file
     Json.php
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
     0.1
 @date
     - Created: 2008-07-27
-    - Modified: 2008-07-28
+    - Modified: 2008-08-29
     .
 @note
     References:
@@ -54,32 +54,32 @@ class Json {
         // Determine what method to call server-side.
         switch($method) {
             case 'createPrefix':
-                $dbTable = new TableList();
+                $dbTable = new TableLists();
                 $dbTable->setDatabaseSql(DatabaseSingleton::getInstance()->getDatabaseSql());
                 $data = $dbTable->createPrefix($arguments[0]);
                 break;
             case 'createPostfix':
-                $dbTable = new TableList();
+                $dbTable = new TableLists();
                 $dbTable->setDatabaseSql(DatabaseSingleton::getInstance()->getDatabaseSql());
                 $data = $dbTable->createPostfix($arguments[0]);
                 break;
             case 'getPrefixes':
-                $dbTable = new TableList();
+                $dbTable = new TableLists();
                 $dbTable->setDatabaseSql(DatabaseSingleton::getInstance()->getDatabaseSql());
                 $data = $dbTable->getPrefixes();
                 break;
             case 'getPostfixes':
-                $dbTable = new TableList();
+                $dbTable = new TableLists();
                 $dbTable->setDatabaseSql(DatabaseSingleton::getInstance()->getDatabaseSql());
                 $data = $dbTable->getPostfixes();
                 break;
             case 'removePrefix':
-                $dbTable = new TableList();
+                $dbTable = new TableLists();
                 $dbTable->setDatabaseSql(DatabaseSingleton::getInstance()->getDatabaseSql());
                 $data = $dbTable->removePrefix($arguments[0]);
                 break;
             case 'removePostfix':
-                $dbTable = new TableList();
+                $dbTable = new TableLists();
                 $dbTable->setDatabaseSql(DatabaseSingleton::getInstance()->getDatabaseSql());
                 $data = $dbTable->removePostfix($arguments[0]);
                 break;

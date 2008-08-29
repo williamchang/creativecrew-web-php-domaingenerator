@@ -3,7 +3,7 @@
 @file
     DatabaseUpdate-mysql.php
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     WordPress Developers, William Chang
 @version

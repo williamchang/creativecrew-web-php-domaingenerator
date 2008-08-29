@@ -3,7 +3,7 @@
 @file
     DatabaseSingleton.php
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version

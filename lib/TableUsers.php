@@ -1,16 +1,16 @@
 <?php
 /**
 @file
-    TableUser.php
+    TableUsers.php
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
     0.1
 @date
     - Created: 2008-07-06
-    - Modified: 2008-07-31
+    - Modified: 2008-08-29
     .
 @note
     References:
@@ -23,8 +23,8 @@
 
 include_once('ClassHeader.php');
 
-/** @class TableUser */
-class TableUser extends TableCommon {
+/** @class TableUsers */
+class TableUsers extends TableCommon {
     protected $_objDbSql = null;
 	
 	public static $TBL__users = 'users';

@@ -331,7 +331,7 @@ classDomainGenerator = function() {
             $('table tr', this).remove(':has(td)');
             if(!isEmpty(jsonObject.result)) {
                 $.each(jsonObject.result, function() {
-                    $('div#ajax-prefix-datatable > table').append('<tr><td>' + this[1] + '</td><td class="controls"><input type="button" class="btncommon" value="Delete" onclick="gen.removeAffix(this, \'removePrefix\');"/><span class="hide">' + this[0] + '</span></td></tr>');
+                    $('div#ajax-prefix-datatable > table').append('<tr><td>' + this[1] + '</td><td class="controls"><input type="button" class="btncommon" value="Delete" onclick="app.removeAffix(this, \'removePrefix\');"/><span class="hide">' + this[0] + '</span></td></tr>');
                 });
             }
         });
@@ -340,7 +340,7 @@ classDomainGenerator = function() {
             $('table tr', this).remove(':has(td)');
             if(!isEmpty(jsonObject.result)) {
                 $.each(jsonObject.result, function() {
-                    $('div#ajax-postfix-datatable > table').append('<tr><td>' + this[1] + '</td><td class="controls"><input type="button" class="btncommon" value="Delete" onclick="gen.removeAffix(this, \'removePostfix\');"/><span class="hide">' + this[0] + '</span></td></tr>');
+                    $('div#ajax-postfix-datatable > table').append('<tr><td>' + this[1] + '</td><td class="controls"><input type="button" class="btncommon" value="Delete" onclick="app.removeAffix(this, \'removePostfix\');"/><span class="hide">' + this[0] + '</span></td></tr>');
                 });
             }
         });
