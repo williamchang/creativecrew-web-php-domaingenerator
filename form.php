@@ -443,24 +443,24 @@ $(document).ready(function() {
             <h3>View</h3>
             <div class="frmcommon">
                 <div id="ajax-prefix-datatable"><table class="tbl">
-					<tr>
-						<th>Prefixes</th>
-						<th class="controls" style="width:1%;"><input type="button" id="ajax-prefix-datatable-refresh-btn" class="btncommon" value="List"/></th>
-					</tr>
+                    <tr>
+                        <th>Prefixes</th>
+                        <th class="controls" style="width:1%;"><input type="button" id="ajax-prefix-datatable-refresh-btn" class="btncommon" value="List"/></th>
+                    </tr>
                 </table></div>
             </div>
             <div class="frmcommon">
                 <div id="ajax-postfix-datatable"><table class="tbl">
-					<tr>
-						<th>Postfixes</th>
-						<th class="controls" style="width:1%;"><input type="button" id="ajax-postfix-datatable-refresh-btn" class="btncommon" value="List"/></th>
-					</tr>
+                    <tr>
+                        <th>Postfixes</th>
+                        <th class="controls" style="width:1%;"><input type="button" id="ajax-postfix-datatable-refresh-btn" class="btncommon" value="List"/></th>
+                    </tr>
                 </table></div>
             </div>
         </div>
         <div class="section">
             <h3>Output</h3>
-			<div id="ajax-expression-set-form" class="frmcommon">
+            <div id="ajax-expression-set-form" class="frmcommon">
                 <div class="inputs"><label>Expression</label><input type="text" id="ajax-expression-set-txt" name="ajax-expression-set-txt" class="txtcommon" value="" maxlength="16"/></div>
                 <div class="controls"><input type="button" id="ajax-expression-set-btn" class="btncommon" value="Set"/> <input type="reset" id="ajax-expression-clear-btn" class="btncommon" value="Clear"/></div>
             </div>
@@ -491,14 +491,14 @@ $(document).ready(function() {
             </div>
         </div>
 <!-- END: Template Region Middle -->
-	</div>
-	</div></div></div>
-	</div><em class="sbtm"><em class="s4"></em><em class="s3"></em><em class="s2"></em><em class="s1"></em></em>
-	<div class="credit center">Designed by <a href="http://www.babybluebox.com/" title="DieHard">William Chang</a></div>
-	<div class="badges center"><ul>
-		<li><a href="http://validator.w3.org/check?uri=referer" title="W3C XHTML Compliant"><img src="http://www.creativecrew.org/images/valid_xhtml_80x15.png" alt="W3C XHTML Compliant" title="W3C XHTML Compliant" height="15" width="80"/></a></li>
-		<li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.williamchang.org/domaingenerator/" title="W3C CSS Compliant"><img src="http://www.creativecrew.org/images/valid_css_80x15.png" alt="W3C CSS Compliant" title="W3C CSS Compliant" height="15" width="80"/></a></li>
-	</ul></div>
+    </div>
+    </div></div></div>
+    </div><em class="sbtm"><em class="s4"></em><em class="s3"></em><em class="s2"></em><em class="s1"></em></em>
+    <div class="credit center">Designed by <a href="http://www.babybluebox.com/" title="DieHard">William Chang</a></div>
+    <div class="badges center"><ul>
+        <li><a href="http://validator.w3.org/check?uri=referer" title="W3C XHTML Compliant"><img src="http://www.creativecrew.org/images/valid_xhtml_80x15.png" alt="W3C XHTML Compliant" title="W3C XHTML Compliant" height="15" width="80"/></a></li>
+        <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.williamchang.org/domaingenerator/" title="W3C CSS Compliant"><img src="http://www.creativecrew.org/images/valid_css_80x15.png" alt="W3C CSS Compliant" title="W3C CSS Compliant" height="15" width="80"/></a></li>
+    </ul></div>
 </div>
 </body>
 </html>
