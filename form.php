@@ -115,8 +115,8 @@ a:link, a:visited, a:hover, a:active { text-decoration:none;color:#000; }
 .badges { display:none; }
 
     </style>
-    <script src="http://jquery.com/src/jquery-latest.js" type="text/javascript"></script>
-    <script src="http://ui.jquery.com/js/ui.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
 
