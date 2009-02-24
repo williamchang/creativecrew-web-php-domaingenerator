@@ -104,31 +104,31 @@ h3 a:hover, h3 a:active {text-decoration:none;color:#000;}
     </style>
     <style type="text/css" media="print">
 
-body { font-family:"Times New Roman", Times, serif;font-size:0.9em;color:#000; }
-img { border:0; }
-form { display:none; }
-h1 { padding-bottom:4px;border-bottom:#000 solid 1px;text-align:center;font-size:1.6em; }
-a:link, a:visited, a:hover, a:active { text-decoration:none;color:#000; }
-.printhide { display:none; }
-.titlesuperscript { text-align:center; }
-.credit { padding-top:4px;border-top:1px solid #000;text-align:center; }
-.badges { display:none; }
+body {font-family:"Times New Roman", Times, serif;font-size:0.9em;color:#000;}
+img {border:0;}
+form {display:none;}
+h1 {padding-bottom:4px;border-bottom:#000 solid 1px;text-align:center;font-size:1.6em;}
+a:link, a:visited, a:hover, a:active {text-decoration:none;color:#000;}
+.printhide {display:none;}
+.titlesuperscript {text-align:center;}
+.credit {padding-top:4px;border-top:1px solid #000;text-align:center;}
+.badges {display:none;}
 
     </style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.jss" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
 
-// Class Domain Generator.
-classDomainGenerator = function() {
-    memberPublic = this;
+// Domain Generator class.
+function classDomainGenerator() {
+    var memberPublic = this;
     memberPublic.removeAffix = removeAffix;
     memberPublic.init = init;
     var _strDelimiter = '';
 
-    // Create prefix by JSON RPC.
-    function _createPrefix(e) {
+    // On event, create prefix by JSON RPC.
+    function _onCreatePrefix(e) {
         var str = document.getElementById('ajax-prefix-create-txt').value;
         var elements = $('#ajax-prefix-create-form input').get();
         if(!isEmpty(str)) {
@@ -138,8 +138,8 @@ classDomainGenerator = function() {
             _error('Prefix field is empty.');
         }
     }
-    // Create postfix by JSON RPC.
-    function _createPostfix(e) {
+    // On event, create postfix by JSON RPC.
+    function _onCreatePostfix(e) {
         var str = document.getElementById('ajax-postfix-create-txt').value;
         var elements = $('#ajax-postfix-create-form input').get();
         if(!isEmpty(str)) {
@@ -150,19 +150,19 @@ classDomainGenerator = function() {
         }
     }
     // Remove affix by JSON RPC.
-    function removeAffix(eleTriggers, ajaxMethod) {
+    function removeAffix(eleTriggers, strAjaxMethod) {
         var args = $(eleTriggers).next().text();
         $(eleTriggers).parent().parent().remove();
-        jsonRpc(eleTriggers, ajaxMethod, args, null, null);
+        jsonRpc(eleTriggers, strAjaxMethod, args, null, null);
     }
-    // Set expression.
-    function _setExpression(e) {
+    // On event, set expression.
+    function _onSetExpression(e) {
         $('input#ajax-expression-set-btn').attr('disabled', 'disabled');
         $('input#ajax-expression-set-txt').attr('disabled', 'disabled');
         _enableGenerator();
     }
-    // Set delimiter.
-    function _setDelimiter(e) {
+    // On event, set delimiter.
+    function _onSetDelimiter(e) {
         $('input#ajax-delimiter-set-btn').attr('disabled', 'disabled');
         $('input#ajax-delimiter-set-txt').attr('disabled', 'disabled');
         _enableGenerator();
@@ -187,7 +187,7 @@ classDomainGenerator = function() {
         $('input#ajax-generate-check-btn').attr('disabled', 'disabled');
     }
     // Generate unions.
-    function _generateUnions() {
+    function _onGenerateUnions() {
         // Check collections.
         if($('div#ajax-prefix-collection.ajax_affix_collection_queried').length <= 0) {return;}
         if($('div#ajax-postfix-collection.ajax_affix_collection_queried').length <= 0) {return;}
@@ -199,22 +199,30 @@ classDomainGenerator = function() {
         var strUnions = '';
         var i, j;
 
+        // Set delimiter.
         _strDelimiter = _checkEscapeCharacters(strDelimiter);
+        // Attach prefixes only to expression.
+        for(i = 0;i < elePrefixes.length;i++) {
+            strUnions += elePrefixes[i].innerHTML + strExpression;
+            strUnions += _strDelimiter;
+        }
+        // Attach postfixes only to expression.
+        for(i = 0;i < elePostfixes.length;i++) {
+            strUnions += strExpression + elePostfixes[i].innerHTML;
+            strUnions += _strDelimiter;
+        }
+        // Attach prefixes and postfixes to expression.
         if(elePrefixes.length >= elePostfixes.length) {
             for(i = 0;i < elePrefixes.length;i++) {
-                strUnions += elePrefixes[i].innerHTML + strExpression;
                 for(j = 0;j < elePostfixes.length;j++) {
-                    strUnions += elePostfixes[j].innerHTML;
+                    strUnions += elePrefixes[i].innerHTML + strExpression + elePostfixes[j].innerHTML + _strDelimiter;
                 }
-                strUnions += _strDelimiter;
             }
         } else {
             for(i = 0;i < elePostfixes.length;i++) {
                 for(j = 0;j < elePrefixes.length;j++) {
-					strUnions += elePrefixes[j].innerHTML;
+					strUnions += elePrefixes[j].innerHTML + strExpression + elePostfixes[i].innerHTML + _strDelimiter;
                 }
-				strUnions += strExpression + elePostfixes[i].innerHTML;
-                strUnions += _strDelimiter;
             }
         }
 
@@ -222,8 +230,8 @@ classDomainGenerator = function() {
         $('input#ajax-generate-check-btn').removeAttr('disabled');
         document.getElementById('ajax-generate-output-txt').value = strUnions;
     }
-    // Generate collections.
-    function _generate(e) {
+    // On event, generate collections.
+    function _onGenerate(e) {
         $(this).filter(':button').attr('disabled', 'disabled');
         $('div#ajax-prefix-collection, div#ajax-postfix-collection').removeClass();
         $('div#ajax-prefix-collection *, div#ajax-postfix-collection *').remove();
@@ -239,8 +247,8 @@ classDomainGenerator = function() {
             return str;
         }
     }
-    // Proceed to external.
-    function _proceedExternal(e) {
+    // On event, proceed to external.
+    function _onProceedExternal(e) {
         var str = $('textarea#ajax-generate-output-txt').val();
         var separator = _strDelimiter;
         var ary = str.split(separator);
@@ -261,29 +269,29 @@ classDomainGenerator = function() {
             $(this).hide('normal').html('');
         });
     }
-    // Set events.
-    function _setEvents() {
+    // Create events.
+    function _createEvents() {
         _enableGenerator();
 
-        $('input#ajax-expression-set-btn').bind('click', _setExpression);
+        $('input#ajax-expression-set-btn').bind('click', _onSetExpression);
         $('input#ajax-expression-set-txt').bind('keypress focus', function(e) {
             if(e.type == 'focus') {this.select();}
             if(e.type == 'keypress' && e.keyCode == 13) {$('input#ajax-expression-set-btn').trigger('click');}
         });
 
-        $('input#ajax-prefix-create-btn').bind('click', _createPrefix);
+        $('input#ajax-prefix-create-btn').bind('click', _onCreatePrefix);
         $('input#ajax-prefix-create-txt').bind('keypress focus', function(e) {
             if(e.type == 'focus') {this.select();}
             if(e.type == 'keypress' && e.keyCode == 13) {$('input#ajax-prefix-create-btn').trigger('click');}
         });
 
-        $('input#ajax-postfix-create-btn').bind('click', _createPostfix);
+        $('input#ajax-postfix-create-btn').bind('click', _onCreatePostfix);
         $('input#ajax-postfix-create-txt').bind('keypress focus', function(e) {
             if(e.type == 'focus') {this.select();}
             if(e.type == 'keypress' && e.keyCode == 13) {$('input#ajax-postfix-create-btn').trigger('click');}
         });
 
-        $('input#ajax-delimiter-set-btn').bind('click', _setDelimiter);
+        $('input#ajax-delimiter-set-btn').bind('click', _onSetDelimiter);
         $('input#ajax-delimiter-set-txt').bind('keypress focus', function(e) {
             if(e.type == 'focus') {this.select();}
             if(e.type == 'keypress' && e.keyCode == 13) {$('input#ajax-delimiter-set-btn').trigger('click');}
@@ -330,7 +338,7 @@ classDomainGenerator = function() {
         $('div#ajax-prefix-datatable').bind('output', function(e, jsonObject, status) {
             $('table tr', this).remove(':has(td)');
             if(!isEmpty(jsonObject.result)) {
-                $.each(jsonObject.result, function() {
+                $.each(jsonObject.result, function(intIndex) {
                     $('div#ajax-prefix-datatable > table').append('<tr><td>' + this[1] + '</td><td class="controls"><input type="button" class="btncommon" value="Delete" onclick="app.removeAffix(this, \'removePrefix\');"/><span class="hide">' + this[0] + '</span></td></tr>');
                 });
             }
@@ -339,74 +347,75 @@ classDomainGenerator = function() {
         $('div#ajax-postfix-datatable').bind('output', function(e, jsonObject, status) {
             $('table tr', this).remove(':has(td)');
             if(!isEmpty(jsonObject.result)) {
-                $.each(jsonObject.result, function() {
+                $.each(jsonObject.result, function(intIndex) {
                     $('div#ajax-postfix-datatable > table').append('<tr><td>' + this[1] + '</td><td class="controls"><input type="button" class="btncommon" value="Delete" onclick="app.removeAffix(this, \'removePostfix\');"/><span class="hide">' + this[0] + '</span></td></tr>');
                 });
             }
         });
 
-        $('input#ajax-generate-output-btn').bind('click', _generate);
+        $('input#ajax-generate-output-btn').bind('click', _onGenerate);
 
         $('div#ajax-prefix-collection').bind('output', function(e, jsonObject, status) {
             $(this).addClass('ajax_affix_collection_queried');
             if(!isEmpty(jsonObject.result)) {
-                $.each(jsonObject.result, function() {$('div#ajax-prefix-collection').append('<span>' + this[1] + '</span>');});
+                $.each(jsonObject.result, function(intIndex) {$('div#ajax-prefix-collection').append('<span>' + this[1] + '</span>');});
             }
-             _generateUnions();
+             _onGenerateUnions();
         });
 
         $('div#ajax-postfix-collection').bind('output', function(e, jsonObject, status) {
             $(this).addClass('ajax_affix_collection_queried');
             if(!isEmpty(jsonObject.result)) {
-                $.each(jsonObject.result, function() {$('div#ajax-postfix-collection').append('<span>' + this[1] + '</span>');});
+                $.each(jsonObject.result, function(intIndex) {$('div#ajax-postfix-collection').append('<span>' + this[1] + '</span>');});
             }
-            _generateUnions();
+            _onGenerateUnions();
         });
 
-        $('input#ajax-generate-check-btn').bind('click', _proceedExternal);
+        $('input#ajax-generate-check-btn').bind('click', _onProceedExternal);
     }
     // Initialize.
     function init() {
-        _setEvents();
+        _createEvents();
     }
 }
 // Is empty.
-function isEmpty(mixed_var) {
-    return (mixed_var == undefined || mixed_var === '' || mixed_var === 0 || mixed_var === '0' || mixed_var === null || mixed_var === false || (isArray(mixed_var) && mixed_var.length === 0));
-}
+function isEmpty(mixed_var) {return (mixed_var == undefined || mixed_var === '' || mixed_var === 0 || mixed_var === '0' || mixed_var === null || mixed_var === false || (isArray(mixed_var) && mixed_var.length === 0));}
 // Is array.
 function isArray(mixed_var) {return (mixed_var instanceof Array);}
 // Perform AJAX by JSON RPC.
-function jsonRpc(eleTriggers, ajaxMethod, ajaxArguments, eleOutput, eleLoading) {
+function jsonRpc(eleTriggers, strAjaxMethod, strAjaxArguments, eleOutput, eleLoading) {
+    if(typeof strAjaxMethod === 'string' && (typeof strAjaxArguments === 'string' || strAjaxArguments === null)) {
+        if(isEmpty(strAjaxArguments)) {
+            strAjaxArguments = '';
+        }
+    } else {return false;}
     if(!isEmpty(eleLoading)) {eleLoading.style.display = 'inline'};
     var timeCurrent = new Date();
     var ajaxId = timeCurrent.getSeconds() + (timeCurrent.getMinutes() * 100) + (timeCurrent.getHours() * 10000);
-    if(typeof ajaxMethod === 'string' && typeof ajaxArguments === 'string') {
-        $.ajax({
-            type:'POST',
-            url:'get.php',
-            beforeSend:function(xhr) {
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            },
-            data:{json:'{"jsonrpc":"2.0", "method":"' + ajaxMethod + '", "params":[' + ajaxArguments + '], "id":' + ajaxId + '}'},
-            dataType:'json',
-            timeout:3000,
-            error:function(xhr, status, ex) {
-                if(!isEmpty(eleLoading)) {eleLoading.style.display = 'none'};
-                status = '<h4>AJAX Error</h4>' + status + ', ' + ajaxMethod + '(' + ajaxArguments + ')<br/>';
-                $(eleOutput).trigger('output', [null, status]);
-                var eleTextbox = $(eleTriggers).removeAttr('disabled').filter(':text').get(0);
-                if(!isEmpty(eleTextbox)) {eleTextbox.select();}
-            },
-            success:function(data, status) {
-                if(!isEmpty(eleLoading)) {eleLoading.style.display = 'none'};
-                status = '<h4>AJAX JSON RPC</h4>' + status + ', ' + ajaxMethod + '(' + ajaxArguments + ')<br/>';
-                $(eleOutput).trigger('output', [data, status]);
-                var eleTextbox = $(eleTriggers).removeAttr('disabled').filter(':text').get(0);
-                if(!isEmpty(eleTextbox)) {eleTextbox.select();}
-            }
-        });
-    }
+    $.ajax({
+        type:'POST',
+        url:'get.php',
+        beforeSend:function(xhr) {
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        },
+        data:{json:'{"jsonrpc":"2.0", "method":"' + strAjaxMethod + '", "params":[' + strAjaxArguments + '], "id":' + ajaxId + '}'},
+        dataType:'json',
+        timeout:3000,
+        error:function(xhr, status, ex) {
+            if(!isEmpty(eleLoading)) {eleLoading.style.display = 'none'};
+            status = '<h4>AJAX Error</h4>' + status + ', ' + strAjaxMethod + '(' + strAjaxArguments + ')<br/>';
+            $(eleOutput).trigger('output', [null, status]);
+            var eleTextbox = $(eleTriggers).removeAttr('disabled').filter(':text').get(0);
+            if(!isEmpty(eleTextbox)) {eleTextbox.select();}
+        },
+        success:function(data, status) {
+            if(!isEmpty(eleLoading)) {eleLoading.style.display = 'none'};
+            status = '<h4>AJAX JSON RPC</h4>' + status + ', ' + strAjaxMethod + '(' + strAjaxArguments + ')<br/>';
+            $(eleOutput).trigger('output', [data, status]);
+            var eleTextbox = $(eleTriggers).removeAttr('disabled').filter(':text').get(0);
+            if(!isEmpty(eleTextbox)) {eleTextbox.select();}
+        }
+    });
     return false;
 }
 var app = new classDomainGenerator();
