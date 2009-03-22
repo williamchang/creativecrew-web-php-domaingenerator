@@ -116,7 +116,7 @@ a:link, a:visited, a:hover, a:active {text-decoration:none;color:#000;}
 
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.jss" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.jss" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
 
