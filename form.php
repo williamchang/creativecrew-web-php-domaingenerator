@@ -26,7 +26,7 @@ em.s4 {height:2px;margin:0 1px;}
 .s-sbox {display:block;background:#fbfbfb;border:0 solid #ebebeb;border-width:0 1px;}
 /* Frame Properties */
 body {background:url(http://www.creativecrew.org/images/body_bg2.gif) #333 repeat fixed 0 0;}
-#frame {width:660px;margin:0 auto;padding:64px 0;}
+#frame {width:660px;margin:0 auto;padding:64px 0 32px 0;}
 #frame .buffer {padding:4px 0;}
 /* Content Properties */
 .content {width:640px;margin:0 auto;overflow:hidden;border:1px solid #ddd;background:#fff;}
@@ -61,6 +61,8 @@ input[disabled][type=text], input[disabled][type=password], textarea[disabled], 
 /* Generic Classes */
 .bold {font-weight:bold;}
 .italic {font-style:italic;}
+.underline {text-decoration:underline;}
+.strikethrough {text-decoration:line-through;}
 .center {text-align:center;}
 .line {	border-top: 1px solid #ccc;border-bottom: 1px solid #efefef;margin:8px auto;height:0;overflow:hidden;}
 .image {float:right;margin:10px 0 10px 10px;border:4px solid #ddd;}
