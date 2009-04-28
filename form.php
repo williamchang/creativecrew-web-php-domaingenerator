@@ -9,11 +9,12 @@
     <title>Domain Generator</title>
     <style type="text/css" media="screen">
 
-/* Baseline Elements */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}legend{color:#000;}
+/* Reset Elements */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{font-size:100%;}
 table {empty-cells:show;}
-/* Baseline Styles */
-body {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:0.9em;color:#000;}
+object {display:block;}
+/* Base Elements */
+body {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:14px;color:#000;}
 /* Round Corners */
 em.stop, em.sbtm {display:block;background:transparent;font-size:1px;}
 em.s1, em.s2, em.s3, em.s4 {display:block;overflow:hidden;}
@@ -30,15 +31,15 @@ body {background:url(http://www.creativecrew.org/images/body_bg2.gif) #333 repea
 #frame .buffer {padding:4px 0;}
 /* Content Properties */
 .content {width:640px;margin:0 auto;overflow:hidden;border:1px solid #ddd;background:#fff;}
-.content .buffer {margin:10px 10px;}
+.content .buffer {margin:6px 10px 10px 10px;}
 .content .section {margin:10px 0 0 0;padding:10px 0 0 10px;background:url(http://www.creativecrew.org/images/left-top-corner-box.jpg) transparent no-repeat top left;}
 /* Element Properties */
-h1 {color:#3c475b;font-weight:bold;font-size:1.6em;}
-h2 {color:#3c475b;font-weight:bold;font-size:1.3em;}
-h3 {color:#3c475b;font-weight:bold;font-size:1.2em;margin-bottom:8px;}
-h4 {color:#000;font-weight:bold;font-size:1em;margin-bottom:8px;}
+h1 {color:#3c475b;font-weight:bold;font-size:180%;}
+h2 {color:#3c475b;font-weight:bold;font-size:150%;}
+h3 {color:#3c475b;font-weight:bold;font-size:130%;margin-bottom:8px;}
+h4 {color:#000;font-weight:bold;margin-bottom:8px;}
 p {margin:1.33em 0;}
-pre {font-size:1.4em;}
+pre {font-size:110%;}
 blockquote {margin:0 40px 0 40px;font-style:italic;}
 ul {margin:10px 0 10px 20px;}
 ul li {list-style-type:disc;}
@@ -67,7 +68,7 @@ input[disabled][type=text], input[disabled][type=password], textarea[disabled], 
 .line {	border-top: 1px solid #ccc;border-bottom: 1px solid #efefef;margin:8px auto;height:0;overflow:hidden;}
 .image {float:right;margin:10px 0 10px 10px;border:4px solid #ddd;}
 .hide {display:none;}
-.titlesuperscript {float:right;padding:0 8px 0 0;font-size:0.7em;}
+.titlesuperscript {float:right;padding:0 8px 0 0;font-size:70%;}
 .bgwhite {background-color:#fff;}
 /* Links */
 a {color:#524cc3;}
@@ -83,7 +84,7 @@ h3 a:hover, h3 a:active {text-decoration:none;color:#000;}
 .titlesuperscript a:link, .titlesuperscript a:visited {text-decoration:none;color:#3c475b;}
 .titlesuperscript a:hover, .titlesuperscript a:active {text-decoration:none;color:#000;}
 /* Footer */
-.credit {margin:10px 0;font-size:0.6em;color:#999;}
+.credit {margin:10px 0;font-size:9px;color:#999;}
 .credit a:link, .credit a:visited {text-decoration:none;color:#999;}
 .credit a:hover, .credit a:active {text-decoration:underline;color:#bbb;}
 .badges ul {margin:0;padding:0;width:100%;}
@@ -106,10 +107,10 @@ h3 a:hover, h3 a:active {text-decoration:none;color:#000;}
     </style>
     <style type="text/css" media="print">
 
-body {font-family:"Times New Roman", Times, serif;font-size:0.9em;color:#000;}
+body {font-family:"Times New Roman", Times, serif;font-size:14px;color:#000;}
 img {border:0;}
 form {display:none;}
-h1 {padding-bottom:4px;border-bottom:#000 solid 1px;text-align:center;font-size:1.6em;}
+h1 {padding-bottom:4px;border-bottom:#000 solid 1px;text-align:center;font-size:160%;}
 a:link, a:visited, a:hover, a:active {text-decoration:none;color:#000;}
 .printhide {display:none;}
 .titlesuperscript {text-align:center;}
@@ -508,7 +509,7 @@ $(document).ready(function() {
     <div class="credit center">Designed by <a href="http://www.babybluebox.com/" title="DieHard">William Chang</a></div>
     <div class="badges center"><ul>
         <li><a href="http://validator.w3.org/check?uri=referer" title="W3C XHTML Compliant"><img src="http://www.creativecrew.org/images/valid_xhtml_80x15.png" alt="W3C XHTML Compliant" title="W3C XHTML Compliant" height="15" width="80"/></a></li>
-        <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.williamchang.org/domaingenerator/" title="W3C CSS Compliant"><img src="http://www.creativecrew.org/images/valid_css_80x15.png" alt="W3C CSS Compliant" title="W3C CSS Compliant" height="15" width="80"/></a></li>
+        <li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="W3C CSS Compliant"><img src="http://www.creativecrew.org/images/valid_css_80x15.png" alt="W3C CSS Compliant" title="W3C CSS Compliant" height="15" width="80"/></a></li>
     </ul></div>
 </div>
 </body>
