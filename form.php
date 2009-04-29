@@ -38,16 +38,14 @@ h1 {color:#3c475b;font-weight:bold;font-size:180%;}
 h2 {color:#3c475b;font-weight:bold;font-size:150%;}
 h3 {color:#3c475b;font-weight:bold;font-size:130%;margin-bottom:8px;}
 h4 {color:#000;font-weight:bold;margin-bottom:8px;}
-p {margin:1.33em 0;}
+p {margin:0 0 16px 0;}
 pre {font-size:110%;}
 blockquote {margin:0 40px 0 40px;font-style:italic;}
-ul {margin:10px 0 10px 20px;}
-ul li {list-style-type:disc;}
-ul li ul {margin:0 0 0 20px;list-style-type:circle;}
-ul li ul li {list-style-type:circle;}
-ul li ul li ul li {list-style-type:square;}
-ol {margin:10px 0 10px 30px;}
-ol li {list-style-type:decimal;}
+ul {margin:0 0 16px 30px;list-style-type:disc;}
+ul ul {margin:0 0 0 30px;list-style-type:circle;}
+ul ul ul {list-style-type:square;}
+ol {margin:0 0 16px 30px;list-style-type:decimal;}
+ol ol {margin:0 0 0 30px;}
 dl {margin:10px 0 10px 0;}
 dl dt {margin:4px 0;}
 dl dd {margin:2px 0 2px 40px;}
